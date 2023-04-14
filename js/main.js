@@ -2,20 +2,22 @@
 // let distance = parseInt(prompt("Inserisci la distanza chilometrica"));
 
 bottone.addEventListener("click", function() {
+
     let distance = document.getElementById("chilometri").value;
     distance = parseInt(distance);
 
-    console.log(distance);
-});
+    let etaUtente = document.getElementById("eta").value;
+    etaUtente = parseInt(etaUtente)
+    
+    if (isNaN(distance)) {
+        console.log("La distanza non è un numero. Impossibile procedere.");
+    } else {
 
-if (isNaN(distance)) {
-    console.log("La distanza non è un numero. Impossibile procedere.");
-} else {
-
-    let prezzo = distance * 0.21;
-    let messaggio = "";
-
-    console.log("Prezzo di base", prezzo);
+        let prezzo = distance * 0.21;
+        let messaggio = "";
+    
+        console.log("Prezzo di base", prezzo);
+    }
 
     if (isNaN(etaUtente)) {
         alert("L'età è errata. Non verranno applicate scontistiche");
@@ -34,6 +36,9 @@ if (isNaN(distance)) {
         }
     }
 
+    console.log(distance);
+});
+
 
     messaggio += ` Il prezzo del biglietto è: ${prezzo.toFixed(2)} €`;
 
@@ -41,9 +46,6 @@ if (isNaN(distance)) {
 
     console.log("Prezzo finale", prezzo);
 
-}
 
-// const getValueInput = () => {
-//     let inputValue = document.getElementById("domTextElement").value;
-//     document.getElementById("valueInput").innerHTML = inputValue;
-// }
+
+
