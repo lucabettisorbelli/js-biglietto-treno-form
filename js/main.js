@@ -1,8 +1,16 @@
-let etaUtente = parseInt(prompt("Inserisci la tua età"));
-let distance = parseInt(prompt("Inserisci la distanza chilometrica"));
+// let etaUtente = parseInt(prompt("Inserisci la tua età"));
+// let distance = parseInt(prompt("Inserisci la distanza chilometrica"));
+
+let distance = document.getElementById("chilometri");
+
+distance = parseInt(distance)
+
+bottone.addEventListener("click", function() {
+    console.log((distance).value);
+});
 
 if (isNaN(distance)) {
-    alert("La distanza non è un numero. Impossibile procedere.");
+    console.log("La distanza non è un numero. Impossibile procedere.");
 } else {
 
     let prezzo = distance * 0.21;
@@ -35,3 +43,8 @@ if (isNaN(distance)) {
     console.log("Prezzo finale", prezzo);
 
 }
+
+// const getValueInput = () => {
+//     let inputValue = document.getElementById("domTextElement").value;
+//     document.getElementById("valueInput").innerHTML = inputValue;
+// }
