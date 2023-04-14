@@ -1,12 +1,11 @@
 // let etaUtente = parseInt(prompt("Inserisci la tua età"));
 // let distance = parseInt(prompt("Inserisci la distanza chilometrica"));
 
-let distance = document.getElementById("chilometri");
-
-distance = parseInt(distance)
-
 bottone.addEventListener("click", function() {
-    console.log((distance).value);
+    let distance = document.getElementById("chilometri").value;
+    distance = parseInt(distance);
+
+    console.log(distance);
 });
 
 if (isNaN(distance)) {
