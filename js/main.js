@@ -1,17 +1,13 @@
-
 bottone.addEventListener("click", function () {
 
     //dati distanza in km
-
     let distance = document.getElementById("chilometri").value;
     distance = parseInt(distance);
     console.log(`la distanza in km è di: ${distance}`);
 
     //dati età utente
-    
-    let etaUtente = document.getElementById("eta").value;
-    etaUtente = parseInt(etaUtente);
-    console.log(`l'età utente è di: ${etaUtente}`);
+    let eta = document.getElementById("eta").value;
+    console.log(`l'età utente è di: ${eta}`);
 
     if (isNaN(distance)) {
         console.log("La distanza non è un numero. Impossibile procedere.");
@@ -20,16 +16,18 @@ bottone.addEventListener("click", function () {
         let messaggio = "";
         console.log("Prezzo di base", prezzo);
 
-        if (isNaN(etaUtente)) {
-            console.log("L'età è errata. Non verranno applicate scontistiche");
-        } else {
-            if (etaUtente < 18) {
+        switch (eta) {
+            case "minorenne":
                 prezzo = prezzo * 0.8;
                 messaggio = `Hai diritto allo sconto 'under 18'.`;
-            } else if (etaUtente > 65) {
+                break;
+            case "adulto":
+                messaggio = `Non hai diritto a nessuno sconto.`;
+                break;
+            case "over65":
                 prezzo = prezzo * 0.55;
                 messaggio = `Hai diritto allo sconto 'senior'.`;
-            }
+                break;
         }
 
         messaggio += ` Il prezzo del biglietto è: ${prezzo.toFixed(2)} €`;
@@ -37,7 +35,6 @@ bottone.addEventListener("click", function () {
         console.log("Prezzo finale", prezzo);
     }
 });
-
 
 
 
