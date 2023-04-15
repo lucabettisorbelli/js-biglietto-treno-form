@@ -31,20 +31,25 @@ bottone.addEventListener("click", function () {
             case "minorenne":
                 prezzo = prezzo * 0.8;
                 messaggio = `Hai diritto allo sconto 'under 18'.`;
+                document.getElementById("offerta").innerText = "offerta minori";
                 break;
             case "adulto":
                 messaggio = `Non hai diritto a nessuno sconto.`;
+                document.getElementById("offerta").innerText = "offerta standard"
                 break;
             case "over65":
                 prezzo = prezzo * 0.55;
                 messaggio = `Hai diritto allo sconto 'senior'.`;
+                document.getElementById("offerta").innerText = "offerta over 65"
                 break;
         }
 
         // risultati da stampare
-        messaggio += ` Il prezzo del biglietto è: ${prezzo.toFixed(2)} €`;
+        
         document.getElementById("risultato").innerText = messaggio;
+        document.getElementById("prezzo").innerText = (prezzo.toFixed(2)) + "€";
         console.log("Prezzo finale", prezzo.toFixed(2));
+        document.getElementById("nome").innerText = (nomeUtente);
     }
 });
 
