@@ -1,5 +1,15 @@
 bottone.addEventListener("click", function () {
 
+    // nome utente
+    let nomeUtente = document.getElementById("nomeUtente").value;
+    if (/\d/.test(nomeUtente)) {
+        console.log("Errore: il nome utente non può contenere numeri.");
+        document.getElementById("risultato").innerText = "Errore: il nome utente non può contenere numeri.";
+        return;
+    } else {
+        console.log(`Il nome utente é: ${nomeUtente}`);
+    }
+
     //dati distanza in km
     let distance = document.getElementById("chilometri").value;
     distance = parseInt(distance);
@@ -11,6 +21,7 @@ bottone.addEventListener("click", function () {
 
     if (isNaN(distance)) {
         console.log("La distanza non è un numero. Impossibile procedere.");
+        document.getElementById("risultato").innerText = "Errore: la distanza non può contenere lettere.";
     } else {
         let prezzo = distance * 0.21;
         let messaggio = "";
@@ -30,13 +41,17 @@ bottone.addEventListener("click", function () {
                 break;
         }
 
+        // risultati da stampare
         messaggio += ` Il prezzo del biglietto è: ${prezzo.toFixed(2)} €`;
         document.getElementById("risultato").innerText = messaggio;
-        console.log("Prezzo finale", prezzo);
+        console.log("Prezzo finale", prezzo.toFixed(2));
     }
 });
 
-
-
-
-
+        // pulsante reset
+document.getElementById("reset").addEventListener("click", function () {
+    document.getElementById("nomeUtente").value = "";
+    document.getElementById("chilometri").value = "";
+    document.getElementById("eta").selectedIndex = 0;
+    document.getElementById("risultato").innerText = "";
+});
