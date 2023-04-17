@@ -1,3 +1,5 @@
+let bottone = document.getElementById("bottone");
+
 bottone.addEventListener("click", function () {
 
     // nome utente
